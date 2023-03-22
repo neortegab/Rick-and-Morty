@@ -1,4 +1,5 @@
 import Card from './Card';
+import './styles/Cards.css'
 
 export default function Cards(props) {
    const characters = props.characters;
@@ -14,7 +15,7 @@ export default function Cards(props) {
                                                    </Card>)
 
    return (
-   <div>
-      {charsCards}
+   <div className='cards_container'>
+      {characters && charsCards}
    </div>);
 }

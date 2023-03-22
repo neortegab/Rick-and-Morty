@@ -1,6 +1,9 @@
+import React from 'react';
+import './styles/Card.css'
+
 export default function Card(props) {
    return (
-      <div>
+      <div className='card'>
          <button onClick={props.onClose}>X</button>
          <h2>{props.name}</h2>
          <h2>{props.status}</h2>
