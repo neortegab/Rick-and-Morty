@@ -4,7 +4,7 @@ import './styles/Card.css'
 export default function Card(props) {
    return (
       <div className='card'>
-         <button onClick={props.onClose}>X</button>
+         <button onClick={() => props.onClose(props.characterToClose)}>X</button>
          <h2>{props.name}</h2>
          <h2>{props.status}</h2>
          <h2>{props.species}</h2>
