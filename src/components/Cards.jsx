@@ -14,7 +14,7 @@ export default function Cards(props) {
       origin={character.origin}
       image={character.image}
       onClose={props.onClose}
-      characterToClose={character.id}
+      characterId={character.id}
       />)
 
    return (
