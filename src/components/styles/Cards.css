@@ -1,6 +1,6 @@
 .cards_container{
+    margin: 1%;
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
-    background-color: aliceblue;
+    gap: 20px
 }

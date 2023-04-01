@@ -5,16 +5,16 @@ export default function Cards(props) {
    const characters = props.characters;
 
    const charsCards = characters.map(
-      character => <Card 
-      key={character.id} 
+      (character, index) => <Card 
+      key={index} 
+      id={character.id}
       name={character.name}
       status={character.status}
       species={character.species}
       gender={character.gender}
-      origin={character.origin}
+      origin={character.origin.name}
       image={character.image}
       onClose={props.onClose}
-      characterId={character.id}
       />)
 
    return (

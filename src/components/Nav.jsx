@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import { Link } from 'react-router-dom';
+import './styles/Nav.css'
 
 export default function Nav({onSearch, onRandom, logOut}) {
 
@@ -8,14 +9,17 @@ export default function Nav({onSearch, onRandom, logOut}) {
     logOut();
   }
   return (  
-    <div>
+    <div className='navbar'>
       <Link to='/about'>
-          <button>About</button>
+          <button className='navbar-button'>About</button>
         </Link>
         <Link to='/home'>
-          <button>Home</button>
+          <button className='navbar-button'>Home</button>
         </Link>
-        <button onClick={() => handleLogOut()}>Log out</button>
+        <Link to='/favorites'>
+          <button className='navbar-button'>Favorites</button>
+        </Link>
+        <button className='navbar-button' onClick={() => handleLogOut()}>Log out</button>
         <SearchBar onSearch={onSearch} onRandom={onRandom}></SearchBar>
     </div>
   )

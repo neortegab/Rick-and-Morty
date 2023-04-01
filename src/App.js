@@ -8,6 +8,7 @@ import About from './components/About.jsx';
 import Detail from './components/Detail.jsx';
 import PageNotFound from './components/PageNotFound';
 import Form from './components/Form.jsx';
+import Favorites from './components/Favorites.jsx'
 
 function App() {
    const [characters, setCharacters] = useState([]);
@@ -62,7 +63,7 @@ function App() {
    }
 
    const onClose = (id) => {
-      setCharacters(characters => characters.filter(character => character.id !== parseInt(id)));
+      setCharacters(characters => characters.filter(character => character.id !== id));
    }
 
    const login = (userData) => {
@@ -77,13 +78,14 @@ function App() {
    }
 
    return (
-      <div className='App'>
+      <div>
          {(pathname!=='/') && <Nav onSearch={onSearch} onRandom={onRandom} logOut={logOut}></Nav>}
          <Routes>
             <Route path='/' element={<Form login={login}/>}></Route>
             <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>}></Route>
             <Route path='/about' element={<About></About>}></Route>
             <Route path='/detail/:id' element={<Detail></Detail>}></Route>
+            <Route path='/favorites' element={<Favorites onClose={onClose}/>}></Route>
             <Route path='*' element={<PageNotFound></PageNotFound>}></Route>
          </Routes>
       </div>

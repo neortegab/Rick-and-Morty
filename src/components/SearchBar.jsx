@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './styles/SearchBar.css'
 
 export default function SearchBar(props) {
    const [id, setId] = useState('');
@@ -13,10 +14,10 @@ export default function SearchBar(props) {
    const onRandom = props.onRandom;
 
    return (
-      <div>
-         <input type='search' onChange={e => handleChange(e)} value={id}/>
-         <button onClick={() => onSearch(id)}>Agregar</button>
-         <button onClick={() => onRandom()}>Random</button>
+      <div className='searchbar-container'>
+         <input className='searchbar-input' type='search' onChange={e => handleChange(e)} value={id}/>
+         <button className='searchbar-button' onClick={() => onSearch(id)}>Add</button>
+         <button className='searchbar-button' onClick={() => onRandom()}>Random</button>
       </div>
    );
 }

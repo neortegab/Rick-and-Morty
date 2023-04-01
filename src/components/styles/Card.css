@@ -1,8 +1,58 @@
-.card{
+.card-container{
+    display: flex;
     border: 2px solid black;
-    width: auto;
+    border-radius: 15px;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    justify-content: space-evenly;
+    background-color: rgb(0 112 202 / 40%);
 }
-img{
-    width: 50%;
+.card-img{
+    margin: 10px;
+    width: 225px;
+    border: 2px solid black;
+    border-radius: 100%;
     align-content: center;
+}
+
+.card-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-button{
+    margin: 5%;
+    border-radius: 6px;
+    padding-left: 15%;
+    padding-right: 15%;
+    font-size: large;
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+}
+
+.card-h2{
+    text-align: center;
+}
+
+.card-link{
+    text-decoration: none;
+    color: black
+}
+
+.card-link:hover{
+    background-color: white;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.card-button-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card-button:hover{
+    cursor: pointer;
 }

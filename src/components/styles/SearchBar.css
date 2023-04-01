@@ -1,0 +1,20 @@
+.searchbar-container{
+    display: flex;
+}
+
+.searchbar-input{
+    font-size: large;
+    font-family: 'Lucida Console';
+    border-radius: 5px;
+}
+
+.searchbar-button{
+    padding: 8px 20px 8px 20px;
+    border-radius: 5px;
+    background-color: ivory;
+    color: black;
+    font-size: large;
+}
+.searchbar-button:hover{
+    cursor: pointer;
+}

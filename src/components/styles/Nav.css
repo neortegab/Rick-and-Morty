@@ -1,0 +1,23 @@
+.navbar{
+    display: flex;
+    background: url('../../image/stars.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+.navbar-button{
+    padding: 8px 45px 8px 45px;
+    border-radius: 5px;
+    background-color: ivory;
+    color: black;
+    font-size: large;
+}
+
+.navbar-button:hover{
+    cursor: pointer;
+}
