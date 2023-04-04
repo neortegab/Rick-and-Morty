@@ -29,7 +29,7 @@ function App() {
    }, [access]);
 
    const onSearch = (id) => {
-      axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+      axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
       if (data.name) {
          const isAlreadyIn = characters.find(character => character.id === data.id);
          if(isAlreadyIn){
