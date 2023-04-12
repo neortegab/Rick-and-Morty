@@ -10,7 +10,7 @@ const errors = {
   no_character : "El id provisto no corresponde a ningún personaje."
 }
 
-async function getCharById(req, res) {
+function getCharById(req, res) {
 
   const {id} = req.params;
 
