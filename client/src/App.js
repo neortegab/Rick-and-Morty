@@ -25,19 +25,19 @@ function App() {
       // eslint-disable-next-line
    }, [access]);
 
-   const onSearch = (id) => {
-      axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
-      if (data.name) {
-         const isAlreadyIn = characters.find(character => character.id === data.id);
+   const onSearch = async (id) => {
+      try {
+         const response = await axios.get(`http://localhost:3001/rickandmorty/character/${id}`);
+         const character = {...response.data, id: parseInt(id)};
+         const isAlreadyIn = characters.find(character => character.id === id);
          if(isAlreadyIn){
-            window.alert('Este personaje ya fue agregado');
-         } else{
-            setCharacters((oldChars) => [...oldChars, data]);
+            return window.alert('Este personaje ya fue agregado');
          }
-      } else {
-         window.alert('¡No hay personajes con este ID!');
+         setCharacters((oldChars) => [...oldChars, character]);
+         
+      } catch (error) {
+         window.alert(error);
       }
-   });
    }
 
    const onRandom = () =>{
@@ -45,13 +45,14 @@ function App() {
       if(id===0){
          id++;
       }
-      axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+      axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
       if (data.name) {
-         const isAlreadyIn = characters.find(character => character.id === data.id);
+         const isAlreadyIn = characters.find(character => character.id === id);
          if(isAlreadyIn){
             window.alert('Este personaje ya fue agregado');
          } else{
-            setCharacters((oldChars) => [...oldChars, data]);
+            const character = {...data, id: parseInt(data.id)};
+            setCharacters((oldChars) => [...oldChars, character]);
          }
       } else {
          window.alert('¡No hay personajes con este ID!');
@@ -63,14 +64,19 @@ function App() {
       setCharacters(characters => characters.filter(character => character.id !== id));
    }
 
-   const login = (userData) => {
+   const login = async (userData) => {
      const { email, password } = userData;
      const URL = "http://localhost:3001/rickandmorty/login";
-     axios(URL + `?username=${email}&password=${password}`).then(({ data }) => {
+     try {
+       const { data } = await axios(
+         URL + `?username=${email}&password=${password}`
+       );
        const { access } = data;
        setAccess(data);
        access && navigate("/home");
-     });
+     } catch (error) {
+       return window.alert(error);
+     }
    };
 
    const logOut = () => {
