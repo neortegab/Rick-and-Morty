@@ -30,11 +30,10 @@ export default function rootReducer(state = initialState, action){
 
     switch(type){
         case ADD_FAVORITE:
-            return { ...state, allFavorites: [...state.allFavorites, payload] };
+            return { ...state, allFavorites: payload };
 
         case REMOVE_FAVORITE:
-            let listRemovingAFavorite = state.allFavorites.filter(favorite => favorite.id !== payload);
-            return { ...state, allFavorites: listRemovingAFavorite };
+            return { ...state, allFavorites: payload };
         
         case FILTER_CARDS:
             let filterByGender = [...state.allFavorites].filter((character) => character.gender === payload);
