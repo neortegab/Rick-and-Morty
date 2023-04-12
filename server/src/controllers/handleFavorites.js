@@ -9,6 +9,10 @@ const errors = {
 const STATUS_ERROR = 400;
 const STATUS_OK = 200;
 
+const getFavorites = (req, res) => {
+    res.status(STATUS_OK).json(myFavorites);
+}
+
 const postFav = (req, res) => {
     const { body } = req;
 
@@ -33,6 +37,7 @@ const deleteFav = (req, res) => {
 }
 
 module.exports = {
+    getFavorites,
     postFav,
     deleteFav
 }

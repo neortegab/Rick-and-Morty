@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-const {postFav, deleteFav} = require("../controllers/handleFavorites");
+const {postFav, deleteFav, getFavorites} = require("../controllers/handleFavorites");
 
+router.get("/", getFavorites);
 router.post("/", postFav);
 router.delete("/:id", deleteFav);
 
