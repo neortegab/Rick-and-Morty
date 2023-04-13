@@ -16,7 +16,7 @@ const getFavorites = (req, res) => {
 const postFav = (req, res) => {
     const { body } = req;
 
-    if(!body) res.status(STATUS_ERROR).json({error: errors.no_data});
+    if(!body.id || !body.name) return res.status(STATUS_ERROR).json({error: errors.no_data});
 
     myFavorites.push(body);
     res.status(STATUS_OK).json(myFavorites);
